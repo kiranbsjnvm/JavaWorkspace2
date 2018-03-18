@@ -55,4 +55,6 @@ public class ProfileResource {
 	public Profile deleteProfile(@PathParam("profileName") String name){
 		return profileService.deleteProfile(name);
 	}
+	
+	
 }

@@ -75,4 +75,16 @@ public class MessageResource {
 		return messageService.deleteMessage(id);
 	}
 	
+	
+	
+	
+	//**********************************************************
+	//SubResources
+	//webapi/messages/{messageId}/comments
+	//webapi/messages/{messageId}/comments/{commentId}
+		
+	@Path("/{messageId}/comments")
+	public CommentResource getCommentResource(){
+		return new CommentResource();
+	}
 }
