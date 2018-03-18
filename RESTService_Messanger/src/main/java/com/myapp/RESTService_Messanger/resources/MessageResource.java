@@ -11,6 +11,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.myapp.RESTService_Messanger.model.Message;
@@ -26,13 +27,25 @@ public class MessageResource {
 	@GET
 	//@Produces(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Message> getMessages(){
+	//localhost:8010/RESTService_Messanger/messages
+	//localhost:8010/RESTService_Messanger/messages?year=2018   [for QueryParam]
+	//localhost:8010/RESTService_Messanger/messages?start=1&size=1
+	public List<Message> getMessages(@QueryParam("year") int year,
+									 @QueryParam("start") int start,
+									 @QueryParam("size") int size){
+		if(year>0){
+			return messageService.getAllMessagesByYear(year);
+		}
+		if(start>=0 && size>0){
+			return messageService.getAllMessagesPaginated(start, size);
+		}
 		return messageService.getAllMessages();
 	}
 	
 	@GET
 	@Path("/{messageId}")
 	@Produces(MediaType.APPLICATION_JSON)
+	//localhost:8010/RESTService_Messanger/messages/2
 	public Message getMessage(@PathParam("messageId") long id){
 		return messageService.getMessage(id);
 	}
@@ -40,6 +53,7 @@ public class MessageResource {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
+	//localhost:8010/RESTService_Messanger/messages [post type]
 	public Message addMessage(Message message){
 		return messageService.addMessage(message);
 	}
