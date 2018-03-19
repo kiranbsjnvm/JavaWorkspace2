@@ -25,7 +25,6 @@ public class MessageResource {
 	MessageService messageService = new MessageService();
 	
 	@GET
-	//@Produces(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_JSON)
 	//localhost:8010/RESTService_Messanger/messages
 	//localhost:8010/RESTService_Messanger/messages?year=2018   [for QueryParam]

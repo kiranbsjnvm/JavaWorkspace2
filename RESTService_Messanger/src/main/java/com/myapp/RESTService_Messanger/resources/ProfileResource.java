@@ -20,7 +20,7 @@ import com.myapp.RESTService_Messanger.service.ProfileService;
 
 
 @Path("/profiles")
-@Produces(MediaType.APPLICATION_JSON)
+@Produces(value = {MediaType.APPLICATION_JSON,MediaType.TEXT_XML})
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProfileResource {
 

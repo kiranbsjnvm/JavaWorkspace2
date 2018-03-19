@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.myapp.RESTService_Messanger.database.DatabaseClass;
+import com.myapp.RESTService_Messanger.exception.DataNotFoundException;
 import com.myapp.RESTService_Messanger.model.Message;
 
 public class MessageService {
@@ -47,7 +48,11 @@ public class MessageService {
 	
 	
 	public Message getMessage(long  id){
-		return messages.get(id);
+		Message message = messages.get(id);
+		if(message == null){
+			throw new DataNotFoundException("Message not found for "+id);
+		}
+		return message;
 	}
 	
 	public Message addMessage(Message message){

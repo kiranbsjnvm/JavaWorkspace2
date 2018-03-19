@@ -10,7 +10,7 @@ import com.myapp.RESTService_Messanger.model.Profile;
 
 public class ProfileService {
 
-private static Map<String, Profile> profiles = DatabaseClass.getProfiles();
+	private static Map<String, Profile> profiles = DatabaseClass.getProfiles();
 	
 	public ProfileService(){
 		profiles.put("kiranbs", new Profile(1L,"kiranbs","text1","kiran"));
