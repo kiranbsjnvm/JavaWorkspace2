@@ -1,0 +1,10 @@
+#createMsg {
+	border: 2px solid red;
+	padding: 20px;
+
+}
+
+#displayBox{
+	border: 1px solid green;
+	padding: 5px;
+}
