@@ -1,0 +1,19 @@
+apply plugin : "java"
+
+sourceSets {
+	main {
+		java.srcDir "src/main"
+	}
+	test{
+		java.srcDir "src/test"
+	}
+}
+
+repositories{
+	mavenCentral()
+}
+
+dependencies {
+	compile "org.apache.commons:commons-lang3:3.3.2"
+}
+
